@@ -15,3 +15,8 @@ module "init" {
     }
   }
 }
+
+module "test_cwlogs1" {
+  source = "../../modules/cloudwatch/logs"
+  cwlogs_name = "test-cwlogs1"
+}
