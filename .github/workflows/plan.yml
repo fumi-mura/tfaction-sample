@@ -1,0 +1,60 @@
+name: terraform-plan
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      targets: ${{ steps.list-targets.outputs.targets }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aquaproj/aqua-installer@v2.2.0
+        with:
+          aqua_version: v2.21.0
+
+      - uses: suzuki-shunsuke/tfaction/list-targets@v0.7.3
+        id: list-targets
+
+  plan:
+    name: "terraform plan (${{ matrix.target.target }})"
+    runs-on: ${{ matrix.target.runs_on }}
+    needs: setup
+
+    if: join(fromJSON(needs.setup.outputs.targets), '') != ''
+
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJSON(needs.setup.outputs.targets) }}
+    env:
+      TFACTION_TARGET: ${{ matrix.target.target }}
+      TFACTION_JOB_TYPE: terraform
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aquaproj/aqua-installer@v2.2.0
+        with:
+          aqua_version: v2.21.0
+
+      - id: github_app_token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+
+      - uses: suzuki-shunsuke/tfaction/setup@v0.7.3
+        with:
+          github_app_token: ${{ steps.github_app_token.outputs.token }}
+
+      - uses: suzuki-shunsuke/tfaction/plan@v0.7.3
+        with:
+          github_app_token: ${{ steps.github_app_token.outputs.token }}
