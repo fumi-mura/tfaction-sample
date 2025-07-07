@@ -17,6 +17,8 @@ jobs:
       targets: ${{ steps.list-targets.outputs.targets }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: feature/setup_tfaction # temp
 
       - uses: aquaproj/aqua-installer@v4.0.2
         with:
