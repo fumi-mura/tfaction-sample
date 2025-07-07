@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "prd-tfaction-sample-terraform-tfstate-s3-bucket"
-    key    = "terraform.tfstate"
+    bucket = "prd-fumis-pf-terraform-tfstate-s3-bucket"
+    key    = "tfaction-sample/terraform.tfstate"
     region = "ap-northeast-1"
   }
 }
