@@ -47,11 +47,11 @@ jobs:
         with:
           aqua_version: v2.21.0
 
-      - id: github_app_token
-        uses: tibdex/github-app-token@v2
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.PRIVATE_KEY }}
+      # - id: github_app_token
+      #   uses: tibdex/github-app-token@v2
+      #   with:
+      #     app_id: ${{ secrets.APP_ID }}
+      #     private_key: ${{ secrets.PRIVATE_KEY }}
 
       - uses: suzuki-shunsuke/tfaction/setup@v0.7.3
         with:
