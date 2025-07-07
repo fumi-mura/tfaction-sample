@@ -1,3 +1,4 @@
+# ファイル名は"yaml"である必要がある
 plan_workflow_name: pull_request_target
 label_prefixes:
   tfmigrate: "migrate:"
