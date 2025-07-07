@@ -22,7 +22,7 @@ jobs:
         with:
           aqua_version: v2.53.3
 
-      - uses: suzuki-shunsuke/tfaction/list-targets@v0.7.3
+      - uses: suzuki-shunsuke/tfaction/list-targets@v1.17.0
         id: list-targets
 
   plan:
