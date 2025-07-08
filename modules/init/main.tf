@@ -8,10 +8,15 @@ data "aws_iam_policy_document" "assume_role" {
       identifiers = ["arn:aws:iam::644370126241:oidc-provider/token.actions.githubusercontent.com"]
     }
 
+    # condition {
+    #   test     = "StringEquals"
+    #   variable = "token.actions.githubusercontent.com:sub"
+    #   values   = ["repo:fumi-mura/tfaction-sample:ref:refs/heads/main"]
+    # }
     condition {
-      test     = "StringEquals"
+      test     = "StringLike"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:fumi-mura/tfaction-sample:ref:refs/heads/main"]
+      values   = ["repo:fumi-mura/tfaction-sample:*"]
     }
   }
 }
