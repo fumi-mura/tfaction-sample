@@ -43,6 +43,9 @@ jobs:
       TFACTION_JOB_TYPE: terraform
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: feature/setup_tfaction # temp
+
       - uses: aquaproj/aqua-installer@v2.2.0
         with:
           aqua_version: v2.21.0
