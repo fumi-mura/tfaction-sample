@@ -35,7 +35,7 @@ target_groups:
     terraform_plan_config:
       aws_assume_role_arn: arn:aws:iam::644370126241:role/prd-iam-role-terraform-plan-readonly
     terraform_apply_config:
-      aws_assume_role_arn: arn:aws:iam::644370126241:role/prd-iam-role-terraform-apply-readonly
+      aws_assume_role_arn: arn:aws:iam::644370126241:role/prd-iam-role-terraform-apply-admin
     # tfmigrate_plan_config:
     #   aws_assume_role_arn: arn:aws:iam::000000000000:role/GitHubActions_Terraform_github_tfmigrate_plan
     # tfmigrate_apply_config:
