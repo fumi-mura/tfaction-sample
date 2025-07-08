@@ -61,6 +61,8 @@ jobs:
       - uses: suzuki-shunsuke/tfaction/setup@v1.17.0
         with:
           github_app_token: ${{ steps.github_app_token.outputs.token }}
+        env:
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
 
       - uses: suzuki-shunsuke/tfaction/plan@v1.17.0
         with:
