@@ -1,0 +1,179 @@
+{
+  "checksums": [
+    {
+      "id": "github_release/github.com/aquasecurity/trivy/v0.60.0/trivy_0.60.0_Linux-64bit.tar.gz",
+      "checksum": "8CF51065F3658DFC402E794590801C84509998FE12ACAB8C4E90DF6257366FF7",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/aquasecurity/trivy/v0.60.0/trivy_0.60.0_Linux-ARM64.tar.gz",
+      "checksum": "DF5094134134B79C928D3F3C8A611B992FD583134823924D30CA0AFC0F86507D",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/aquasecurity/trivy/v0.60.0/trivy_0.60.0_macOS-64bit.tar.gz",
+      "checksum": "0F22197051F28CAE120494D67862E1252099339BDBD536AAABCDA56CE203963E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/aquasecurity/trivy/v0.60.0/trivy_0.60.0_macOS-ARM64.tar.gz",
+      "checksum": "B017CFDD640DCF4F7ED6C87E0E7337155F32C07530A086CB08DC8DC270AE2382",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/int128/ghcp/v1.13.2/ghcp_darwin_amd64.zip",
+      "checksum": "8221F411AC4F2465B7CFD31EFB6DA4568E5FD20BAD9F66AC312B23AFA4520FDD",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/int128/ghcp/v1.13.2/ghcp_linux_amd64.zip",
+      "checksum": "6B9D9C9A7B834237B6579353477DF3BB3730C11788170AD2A9E5D1230ABC6216",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/int128/ghcp/v1.13.2/ghcp_windows_amd64.zip",
+      "checksum": "2297D27978C61272184589C3C521514291E6258C3C87EBCB16FB61B32663414E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/reviewdog/reviewdog/v0.14.2/reviewdog_0.14.2_Darwin_arm64.tar.gz",
+      "checksum": "9157E380FB9925A52A10963145E70F3ADEBF976EB7B358A825899C8E93C33C10",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/reviewdog/reviewdog/v0.14.2/reviewdog_0.14.2_Darwin_x86_64.tar.gz",
+      "checksum": "2C7C826A8C07E192DCEFA07900ED220C7DE0DE3976979C6A13F1B48610FCB7AD",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/reviewdog/reviewdog/v0.14.2/reviewdog_0.14.2_Linux_arm64.tar.gz",
+      "checksum": "A8240E7EAC455CA85C516B614889F7358B3411B6479A9955A52000611A034617",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/reviewdog/reviewdog/v0.14.2/reviewdog_0.14.2_Linux_x86_64.tar.gz",
+      "checksum": "63D7720AC3329A9375D9126286C8E2FD3A37B1F75D8FF21094D996B4AB3A011C",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/reviewdog/reviewdog/v0.14.2/reviewdog_0.14.2_Windows_arm64.tar.gz",
+      "checksum": "8BE0AF6C22CF54B0ED0A97657460EAE986B438208B09BAB6BAB8AE9EB27122AD",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/reviewdog/reviewdog/v0.14.2/reviewdog_0.14.2_Windows_x86_64.tar.gz",
+      "checksum": "306CF9054ED4F2D52CC08F7660BFB51FD44AF4B713BD0C6403C1CE273E4DD734",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/github-comment/v6.3.1/github-comment_6.3.1_darwin_amd64.tar.gz",
+      "checksum": "6691BB87C9EAD69E4AA1BD2E6694B51568D4812FC9F2D9893F7E865740D5FE0E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/github-comment/v6.3.1/github-comment_6.3.1_darwin_arm64.tar.gz",
+      "checksum": "05CEB905E08642644197B5CD7BE0946849D87103DBD5EDED32715DC96CBF0264",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/github-comment/v6.3.1/github-comment_6.3.1_linux_amd64.tar.gz",
+      "checksum": "906CF42A89564B3DCC885C07C6DF3A67DD3782FFD02D8336CE26701720CC78BD",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/github-comment/v6.3.1/github-comment_6.3.1_linux_arm64.tar.gz",
+      "checksum": "F90BD621A554D395635169B48AAB93875DF70D92772F111FD2F4903088C11B48",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/github-comment/v6.3.1/github-comment_6.3.1_windows_amd64.tar.gz",
+      "checksum": "E65A9DC4DED59BD9D0C7A053EA987FE7DBA63B6F0F5A5B1087FC83280CCAB0ED",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/github-comment/v6.3.1/github-comment_6.3.1_windows_arm64.tar.gz",
+      "checksum": "1AA46EE0D1274217D1C68603A9D4B0F2383C6121A2EE64FF11279F01A27BE5DE",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terraform-docs/terraform-docs/v0.19.0/terraform-docs-v0.19.0-darwin-amd64.tar.gz",
+      "checksum": "FC3FA55037E35F1B76D1C7E84ED5A8B412EA6AED8264DF050E1F692FAD1DAE29",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terraform-docs/terraform-docs/v0.19.0/terraform-docs-v0.19.0-darwin-arm64.tar.gz",
+      "checksum": "C4E8D863571B8D5102089A22500426A18094855040EB07E4B83E4DFD1816DD23",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terraform-docs/terraform-docs/v0.19.0/terraform-docs-v0.19.0-linux-amd64.tar.gz",
+      "checksum": "DD741A0ECE81059A478684B414D95D72B8B74FA58F50AC4036B4E8B56130D64B",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terraform-docs/terraform-docs/v0.19.0/terraform-docs-v0.19.0-linux-arm64.tar.gz",
+      "checksum": "EBDA7DDA3A1F678E9E3EF2F091C97B43F34A5A1B52FB9B1D3F44A003F481E8B5",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terraform-docs/terraform-docs/v0.19.0/terraform-docs-v0.19.0-windows-amd64.zip",
+      "checksum": "9D6D63B6C57FA82EC4BB61E7CDF504F52470FAE3E46E293A7E9FCCCBADDB1BA7",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terraform-linters/tflint/v0.53.0/tflint_darwin_amd64.zip",
+      "checksum": "7F2041DA26ED25641BC4C844EA999A04B8CB08C67ECFD78E7281640168B6BFF6",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terraform-linters/tflint/v0.53.0/tflint_darwin_arm64.zip",
+      "checksum": "2BA8EEFE6CBD5D34E5A0589A8897646E4DA44C48F4C2FD9A77581D1E2B03BFF8",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terraform-linters/tflint/v0.53.0/tflint_linux_amd64.zip",
+      "checksum": "BB0A3A6043EA1BCD221FC95D49BAC831BB511EB31946CA6A4050983E9E584578",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terraform-linters/tflint/v0.53.0/tflint_linux_arm64.zip",
+      "checksum": "888DE559C3716D1007496F22C949DAF246C8E1F7315C320FEA7EDDB09DE60FF2",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/terraform-linters/tflint/v0.53.0/tflint_windows_amd64.zip",
+      "checksum": "76C0FB7FCEC89CFB3661FE5840736D74BACBFD89BF1829BD788CF47A1C9EE1AD",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/releases.hashicorp.com/terraform/1.12.0/terraform_1.12.0_darwin_amd64.zip",
+      "checksum": "7516B58D79F9C261498E54F26F5E6684DA379D0B44956121F832B9E3302BAF24",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/releases.hashicorp.com/terraform/1.12.0/terraform_1.12.0_darwin_arm64.zip",
+      "checksum": "4E6CAB902BD43D218BA3E921A3D80D4C9E5056D9D5BADBAC7190741AFC095506",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/releases.hashicorp.com/terraform/1.12.0/terraform_1.12.0_linux_amd64.zip",
+      "checksum": "C71FD5D500A7E4D869BF5D12176C72D1DFC00440B862116797694361671F77C8",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/releases.hashicorp.com/terraform/1.12.0/terraform_1.12.0_linux_arm64.zip",
+      "checksum": "8174792E28419601DB6445F3252F792BC84C14358F6FE1C65D2951D89B36FADF",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/releases.hashicorp.com/terraform/1.12.0/terraform_1.12.0_windows_amd64.zip",
+      "checksum": "4BA7BEC4DE25DB9813B071A1E48C27C43775B8FEDD5408D2747E255A4A29AA1B",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.23.0/registry.yaml",
+      "checksum": "DE2E3DCBC79455A7BE915DD739A65C82CD73D2838809A64426C4EB156B99A0A8",
+      "algorithm": "sha256"
+    }
+  ]
+}

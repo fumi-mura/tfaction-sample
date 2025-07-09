@@ -1,0 +1,77 @@
+name: Terraform apply
+on:
+  pull_request:
+    branches: main
+  types: closed
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+jobs:
+  setup:
+    name: Setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      targets: ${{ steps.list-targets.outputs.targets }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install tools
+        uses: aquaproj/aqua-installer@v4.0.2
+        with:
+          aqua_version: v2.53.3
+
+      - name: Get changed directories
+        uses: suzuki-shunsuke/tfaction/list-targets@v1.17.0
+        id: list-targets
+
+  apply:
+    name: "terraform apply (${{ matrix.target.target }})"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: setup
+    if: join(fromJSON(needs.setup.outputs.targets), '') != ''
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJSON(needs.setup.outputs.targets) }}
+    env:
+      TFACTION_TARGET: ${{ matrix.target.target }}
+      TFACTION_WORKING_DIR: ${{matrix.target.working_directory}}
+      TFACTION_JOB_TYPE: ${{matrix.target.job_type}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install tools
+        uses: aquaproj/aqua-installer@v4.0.2
+        with:
+          aqua_version: v2.53.3
+
+      - name: Generate token
+        id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.TFACTION_GITHUB_APP_ID }}
+          private-key: ${{ secrets.TFACTION_GITHUB_PRIVATE_KEY }}
+
+      - name: Set up
+        uses: suzuki-shunsuke/tfaction/setup@v1.17.0
+        with:
+          github_token: ${{ steps.generate_token.outputs.token }}
+
+      - name: Apply
+        uses: suzuki-shunsuke/tfaction/apply@v1.17.0
+        with:
+          github_token: ${{ steps.generate_token.outputs.token }}
+
+      - name: Follow up PR
+        uses: suzuki-shunsuke/tfaction/create-follow-up-pr@v1.17.0
+        if: failure()
+        with:
+          github_token: ${{ steps.generate_token.outputs.token }}
