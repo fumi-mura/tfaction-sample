@@ -1,8 +1,7 @@
-name: terraform-plan
+name: Terraform plan
 on:
   pull_request:
-    branches:
-      - main
+    branches: [main]
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -12,6 +11,7 @@ permissions:
   pull-requests: write
 jobs:
   setup:
+    name: Setup
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
@@ -34,6 +34,7 @@ jobs:
   plan:
     name: "terraform plan (${{ matrix.target.target }})"
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     needs: setup
     if: join(fromJSON(needs.setup.outputs.targets), '') != ''
     strategy:
