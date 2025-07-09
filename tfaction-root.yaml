@@ -32,8 +32,8 @@ target_groups:
     aws_region: ap-northeast-1
     # s3_bucket_name_tfmigrate_history: '<S3 Bucket Name for tfmigrate history files>'
     # template_dir: templates/github
-    terraform_plan_config:
-      aws_assume_role_arn: arn:aws:iam::644370126241:role/prd-iam-role-terraform-plan-readonly
+    # terraform_plan_config:
+    #   aws_assume_role_arn: arn:aws:iam::644370126241:role/prd-iam-role-terraform-plan-readonly
     terraform_apply_config:
       aws_assume_role_arn: arn:aws:iam::644370126241:role/prd-iam-role-terraform-apply-admin
     # tfmigrate_plan_config:

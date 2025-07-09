@@ -43,6 +43,7 @@ jobs:
       TFACTION_TARGET: ${{ matrix.target.target }}
       TFACTION_WORKING_DIR: ${{matrix.target.working_directory}}
       TFACTION_JOB_TYPE: ${{matrix.target.job_type}}
+      AWS_ASSUME_ROLE_ARN: ${{ secrets.OIDC_ROLE_ARN_PLAN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
