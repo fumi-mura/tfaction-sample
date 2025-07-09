@@ -1,7 +1,7 @@
 # ファイル名は"yaml"である必要がある
-plan_workflow_name: pull_request_target
-label_prefixes:
-  tfmigrate: "migrate:"
+plan_workflow_name: Terraform plan
+# label_prefixes:
+#   tfmigrate: "migrate:"
 # skip_create_pr: true
 
 drift_detection:
