@@ -16,15 +16,18 @@ jobs:
     outputs:
       targets: ${{ steps.list-targets.outputs.targets }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           ref: feature/setup_tfaction # temp
 
-      - uses: aquaproj/aqua-installer@v4.0.2
+      - name: Install tools
+        uses: aquaproj/aqua-installer@v4.0.2
         with:
           aqua_version: v2.53.3
 
-      - uses: suzuki-shunsuke/tfaction/list-targets@v1.17.0
+      - name: Get changed directories
+        uses: suzuki-shunsuke/tfaction/list-targets@v1.17.0
         id: list-targets
 
   plan:
@@ -41,29 +44,29 @@ jobs:
       TFACTION_WORKING_DIR: ${{matrix.target.working_directory}}
       TFACTION_JOB_TYPE: ${{matrix.target.job_type}}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           ref: feature/setup_tfaction # temp
 
-      - name: Check files
-        run: ls -la
-
-      - uses: aquaproj/aqua-installer@v4.0.2
+      - name: Install tools
+        uses: aquaproj/aqua-installer@v4.0.2
         with:
           aqua_version: v2.53.3
 
-      - id: github_app_token
+      - name: Generate token
+        id: generate_token
         uses: actions/create-github-app-token@v1
         with:
           app-id: ${{ secrets.TFACTION_GITHUB_APP_ID }}
           private-key: ${{ secrets.TFACTION_GITHUB_PRIVATE_KEY }}
 
-      - uses: suzuki-shunsuke/tfaction/setup@v1.17.0
+      - name: Set up
+        uses: suzuki-shunsuke/tfaction/setup@v1.17.0
         with:
-          github_app_token: ${{ steps.github_app_token.outputs.token }}
-        env:
-          GITHUB_TOKEN: ${{ steps.github_app_token.outputs.token }}
+          github_token: ${{ steps.generate_token.outputs.token }}
 
-      - uses: suzuki-shunsuke/tfaction/plan@v1.17.0
+      - name: Plan
+        uses: suzuki-shunsuke/tfaction/plan@v1.17.0
         with:
-          github_app_token: ${{ steps.github_app_token.outputs.token }}
+          github_token: ${{ steps.generate_token.outputs.token }}
