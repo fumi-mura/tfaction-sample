@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "assume_role" {
 resource "aws_iam_role" "this" {
   for_each = var.iam_roles
 
-  name               = "${each.value.env}-iam-role-terraform-${each.value.exec}-${each.value.policy}"
+  name               = "${var.env}-iam-role-terraform-${each.value.exec}-${each.value.policy}"
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
