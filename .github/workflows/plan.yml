@@ -1,22 +1,19 @@
 name: terraform-plan
-
 on:
   pull_request:
     branches:
       - main
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-
 permissions:
   id-token: write
   contents: read
   pull-requests: write
-
 jobs:
   setup:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     outputs:
       targets: ${{ steps.list-targets.outputs.targets }}
     steps:
