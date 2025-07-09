@@ -19,8 +19,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: feature/setup_tfaction # temp
 
       - name: Install tools
         uses: aquaproj/aqua-installer@v4.0.2
@@ -48,8 +46,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: feature/setup_tfaction # temp
 
       - name: Install tools
         uses: aquaproj/aqua-installer@v4.0.2
