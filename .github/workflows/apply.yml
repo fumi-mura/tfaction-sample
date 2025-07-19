@@ -1,7 +1,7 @@
 name: Terraform apply
 on:
   pull_request:
-    branches: main
+    branches: [main]
     types: closed
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
