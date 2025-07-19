@@ -1,2 +1,3 @@
-# Accept the risk.
-AVD-AWS-0132
+vulnerabilities:
+  - id: AVD-AWS-0132
+    # Accept the risk.
