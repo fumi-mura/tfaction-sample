@@ -48,6 +48,7 @@ jobs:
       TFACTION_TARGET: ${{ matrix.target.target }}
       TFACTION_WORKING_DIR: ${{matrix.target.working_directory}}
       TFACTION_JOB_TYPE: ${{matrix.target.job_type}}
+      TFLINT_CONFIG_FILE: ${{ github.workspace }}/environments/.tflint.hcl
     steps:
       - name: Checkout
         uses: actions/checkout@v4
