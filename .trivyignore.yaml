@@ -1,0 +1,5 @@
+# ref: https://trivy.dev/v0.56/docs/configuration/filtering/#trivyignoreyaml
+
+vulnerabilities:
+  - id: AVD-AWS-0132
+    # Accept the risk.

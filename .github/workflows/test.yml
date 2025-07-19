@@ -1,4 +1,4 @@
-name: Terraform plan
+name: Terraform test
 on:
   pull_request:
     branches: [main]
@@ -9,6 +9,10 @@ permissions:
   id-token: write
   contents: read
   pull-requests: write
+env:
+  TRIVY_CONFIG: ${{ github.workspace }}/trivy.yaml
+  TRIVY_IGNOREFILE: ${{ github.workspace }}/.trivyignore.yaml
+  TFLINT_CONFIG_FILE: ${{ github.workspace }}/modules/.tflint.hcl
 jobs:
   setup:
     name: Setup
@@ -16,6 +20,7 @@ jobs:
     timeout-minutes: 5
     outputs:
       targets: ${{ steps.list-targets.outputs.targets }}
+      modules: ${{ steps.list-targets.outputs.modules }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,12 +34,12 @@ jobs:
         uses: suzuki-shunsuke/tfaction/list-targets@v1.17.0
         id: list-targets
 
-  plan:
+  envs-test:
     name: "terraform plan (${{ matrix.target.target }})"
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     needs: setup
     if: join(fromJSON(needs.setup.outputs.targets), '') != ''
+    timeout-minutes: 5
     strategy:
       fail-fast: false
       matrix:
@@ -43,6 +48,7 @@ jobs:
       TFACTION_TARGET: ${{ matrix.target.target }}
       TFACTION_WORKING_DIR: ${{matrix.target.working_directory}}
       TFACTION_JOB_TYPE: ${{matrix.target.job_type}}
+      TFLINT_CONFIG_FILE: ${{ github.workspace }}/environments/.tflint.hcl
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -59,7 +65,7 @@ jobs:
           app-id: ${{ secrets.TFACTION_GITHUB_APP_ID }}
           private-key: ${{ secrets.TFACTION_GITHUB_PRIVATE_KEY }}
 
-      - name: Configure AWS credentials from OIDC
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.OIDC_ROLE_ARN_PLAN }}
@@ -70,7 +76,41 @@ jobs:
         with:
           github_token: ${{ steps.generate_token.outputs.token }}
 
-      - name: Plan
-        uses: suzuki-shunsuke/tfaction/plan@v1.17.0
+      - name: Test
+        uses: suzuki-shunsuke/tfaction/test@v1.17.0
+        with:
+          github_token: ${{ steps.generate_token.outputs.token }}
+
+  modules-test:
+    name: Test module (${{ matrix.target }})
+    runs-on: ubuntu-latest
+    needs: setup
+    if: join(fromJSON(needs.setup.outputs.modules), '') != ''
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJSON(needs.setup.outputs.modules) }}
+    env:
+      TFACTION_TARGET: ${{ matrix.target }}
+      TFLINT_CONFIG_FILE: ${{ github.workspace }}/modules/.tflint.hcl
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install tools
+        uses: aquaproj/aqua-installer@v4.0.2
+        with:
+          aqua_version: v2.53.3
+
+      - name: Generate token
+        id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.TFACTION_GITHUB_APP_ID }}
+          private-key: ${{ secrets.TFACTION_GITHUB_PRIVATE_KEY }}
+
+      - name: Test
+        uses: suzuki-shunsuke/tfaction/test-module@v1.17.0
         with:
           github_token: ${{ steps.generate_token.outputs.token }}
