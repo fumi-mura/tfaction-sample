@@ -63,3 +63,4 @@ jobs:
           github_token: ${{steps.generate_token.outputs.token}}
           branch: ${{inputs.branch}}
           file: ${{inputs.file}}
+          args: "--no-comment"
