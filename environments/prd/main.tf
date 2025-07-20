@@ -1,6 +1,6 @@
 module "init" {
   source = "../../modules/init"
-  env = local.env
+  env    = local.env
   iam_roles = {
     prd_plan_admin = {
       exec           = "plan"
@@ -16,7 +16,7 @@ module "init" {
 }
 
 module "test_cwlogs1" {
-  source = "../../modules/cloudwatch/logs"
+  source      = "../../modules/cloudwatch/logs"
   cwlogs_name = "test-cwlogs1"
 }
 
