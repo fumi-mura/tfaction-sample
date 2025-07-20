@@ -1,0 +1,59 @@
+name: Generate code by terraform plan -generate-config-out
+run-name: Generate code by terraform plan -generate-config-out (${{inputs.working_dir}})
+on:
+  workflow_dispatch:
+    inputs:
+      working_dir:
+        description: working directory
+        required: true
+      file:
+        description: file name
+        required: true
+      branch:
+        description: branch name
+        required: true
+
+env:
+  TFACTION_WORKING_DIR: ${{github.event.inputs.working_dir}}
+  TFACTION_JOB_TYPE: terraform
+  FILE: ${{inputs.file}}
+  BRANCH: ${{inputs.branch}}
+jobs:
+  import:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # For OIDC
+      contents: read # For checkout a private repository
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{inputs.branch}}
+          persist-credentials: false
+
+      - uses: aquaproj/aqua-installer@v4.0.2
+        with:
+          aqua_version: v2.53.5
+          working_directory: ${{env.TFACTION_WORKING_DIR}}
+        env:
+          AQUA_GITHUB_TOKEN: ${{github.token}}
+
+      - name: Generate token
+        id: generate_token
+        uses: actions/create-github-app-token@v2.1.0
+        with:
+          app_id: ${{secrets.TFACTION_GITHUB_APP_ID}}
+          private_key: ${{secrets.TFACTION_GITHUB_PRIVATE_KEY}}
+
+      - uses: suzuki-shunsuke/tfaction/setup@v1.17.0
+        id: setup
+        with:
+          github_token: ${{steps.generate_token.outputs.token}}
+
+      - uses: suzuki-shunsuke/tfaction/generate-config-out@v1.17.0
+        env:
+          GITHUB_TOKEN: ${{steps.generate_token.outputs.token}}
+        with:
+          github_token: ${{steps.generate_token.outputs.token}}
+          branch: ${{inputs.branch}}
+          file: ${{inputs.file}}
