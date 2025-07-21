@@ -1,5 +1,7 @@
 # 利用時には事前にimportブロックと、対応するresourceブロックを用意しておくこと。
 # リソースブロックが無い状態で実行するとaquaのchecksumで謎のエラーが発生した。
+# ローカルで実行すると、リソースブロックが無い状態はgenerated.tfが作成されるが、
+# リソースブロックがあるとgenerated.tfは作成されない
 name: terraform plan -generate-config-out
 run-name: terraform plan -generate-config-out (${{inputs.working_dir}})
 on:
