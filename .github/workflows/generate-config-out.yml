@@ -1,5 +1,5 @@
-name: Generate code by terraform plan -generate-config-out
-run-name: Generate code by terraform plan -generate-config-out (${{inputs.working_dir}})
+name: terraform plan -generate-config-out
+run-name: terraform plan -generate-config-out (${{inputs.working_dir}})
 on:
   workflow_dispatch:
     inputs:
