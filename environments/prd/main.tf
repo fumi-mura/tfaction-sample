@@ -25,6 +25,10 @@ module "test_cwlogs1" {
 #   cwlogs_name = "test-cwlogs2"
 # }
 
+resource "aws_cloudwatch_log_group" "test_cwlogs1" {
+  name = "test-cwlogs1"
+}
+
 import {
   id = "test-cwlogs1"
   to = aws_cloudwatch_log_group.test_cwlogs1
