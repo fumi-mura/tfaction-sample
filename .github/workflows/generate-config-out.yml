@@ -33,8 +33,8 @@ jobs:
 
       - uses: aquaproj/aqua-installer@v4.0.2
         with:
-          aqua_version: v2.53.5
-          working_directory: ${{env.TFACTION_WORKING_DIR}}
+          aqua_version: v2.53.3
+          # working_directory: ${{env.TFACTION_WORKING_DIR}}
         env:
           AQUA_GITHUB_TOKEN: ${{github.token}}
 
@@ -63,4 +63,4 @@ jobs:
           github_token: ${{steps.generate_token.outputs.token}}
           branch: ${{inputs.branch}}
           file: ${{inputs.file}}
-          args: "--no-comment"
+          # args: "--no-comment"
