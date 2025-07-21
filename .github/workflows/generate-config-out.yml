@@ -1,5 +1,5 @@
 # 利用時には事前にimportブロックと、対応するresourceブロックを用意しておくこと。
-# リソースブロックが無い状態で実行すると謎のエラーが発生した。原因は調査中。
+# リソースブロックが無い状態で実行するとaquaのchecksumで謎のエラーが発生した。
 name: terraform plan -generate-config-out
 run-name: terraform plan -generate-config-out (${{inputs.working_dir}})
 on:
@@ -39,7 +39,6 @@ jobs:
           working_directory: ${{env.TFACTION_WORKING_DIR}}
         env:
           AQUA_GITHUB_TOKEN: ${{github.token}}
-          # AQUA_CHECKSUM_ENABLED: "false"
 
       - name: Generate token
         id: generate_token
@@ -58,15 +57,12 @@ jobs:
         id: setup
         with:
           github_token: ${{steps.generate_token.outputs.token}}
-        # env:
-        #   AQUA_CONFIG: ${{ github.workspace }}/aqua.yml
 
       - uses: suzuki-shunsuke/tfaction/generate-config-out@v1.17.0
         env:
           GITHUB_TOKEN: ${{steps.generate_token.outputs.token}}
-          # AQUA_CONFIG: ${{ github.workspace }}/aqua.yml
         with:
           github_token: ${{steps.generate_token.outputs.token}}
           branch: ${{inputs.branch}}
           file: ${{inputs.file}}
-          # args: "--no-comment"
+          args: "--no-comment"
