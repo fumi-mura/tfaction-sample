@@ -65,7 +65,7 @@ jobs:
           github_token: ${{steps.generate_token.outputs.token}}
           branch: ${{inputs.branch}}
           file: ${{inputs.file}}
-          args: "--no-comment --no-label"
+          # args: "--no-comment --no-label"
 
       - name: List generated files
         run: |
