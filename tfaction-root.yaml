@@ -22,7 +22,7 @@ trivy:
 aqua:
   update_checksum:
     # Update aqua-checksums.json in `setup` action
-    # enabled: true # default is false
+    enabled: true # default is false
     skip_push: false # default is false
     prune: true # default is false
 
