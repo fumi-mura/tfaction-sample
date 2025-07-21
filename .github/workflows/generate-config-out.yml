@@ -1,5 +1,9 @@
-name: Generate code by terraform plan -generate-config-out
-run-name: Generate code by terraform plan -generate-config-out (${{inputs.working_dir}})
+# 利用時には事前にimportブロックと、対応するresourceブロックを用意しておくこと。
+# リソースブロックが無い状態で実行するとaquaのchecksumで謎のエラーが発生した。
+# ローカルで実行すると、リソースブロックが無い状態はgenerated.tfが作成されるが、
+# リソースブロックがあるとgenerated.tfは作成されない
+name: terraform plan -generate-config-out
+run-name: terraform plan -generate-config-out (${{inputs.working_dir}})
 on:
   workflow_dispatch:
     inputs:
@@ -33,7 +37,7 @@ jobs:
 
       - uses: aquaproj/aqua-installer@v4.0.2
         with:
-          aqua_version: v2.53.5
+          aqua_version: v2.53.3
           working_directory: ${{env.TFACTION_WORKING_DIR}}
         env:
           AQUA_GITHUB_TOKEN: ${{github.token}}
@@ -63,3 +67,9 @@ jobs:
           github_token: ${{steps.generate_token.outputs.token}}
           branch: ${{inputs.branch}}
           file: ${{inputs.file}}
+          # args: "--no-comment --no-label"
+
+      - name: List generated files
+        run: |
+          echo "Listing generated_*.tf"
+          ls -la generated_*.tf || echo "Not found"
