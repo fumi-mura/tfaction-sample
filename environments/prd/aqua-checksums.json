@@ -51,6 +51,21 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/int128/ghcp/v1.14.0/ghcp_darwin_amd64.zip",
+      "checksum": "3474F39BDD6740C82A22E51E01C0E66A24DDB0F5075C341EF1FA97A41EF3BF6A",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/int128/ghcp/v1.14.0/ghcp_linux_amd64.zip",
+      "checksum": "25C736DF285D04FB1E47088598615AAFBFD7D87B24C6546232959B45B5CC23C7",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/int128/ghcp/v1.14.0/ghcp_windows_amd64.zip",
+      "checksum": "D9052C1F6A7E133F993EBA924EF11C303921E00603E526D498125C934D993282",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/reviewdog/reviewdog/v0.14.2/reviewdog_0.14.2_Darwin_arm64.tar.gz",
       "checksum": "9157E380FB9925A52A10963145E70F3ADEBF976EB7B358A825899C8E93C33C10",
       "algorithm": "sha256"
