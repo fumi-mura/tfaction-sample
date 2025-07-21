@@ -37,6 +37,7 @@ jobs:
           working_directory: ${{env.TFACTION_WORKING_DIR}}
         env:
           AQUA_GITHUB_TOKEN: ${{github.token}}
+          AQUA_CHECKSUM_ENABLED: "false"
 
       - name: Generate token
         id: generate_token
