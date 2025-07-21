@@ -56,13 +56,13 @@ jobs:
         id: setup
         with:
           github_token: ${{steps.generate_token.outputs.token}}
-        env:
-          AQUA_CONFIG: ${{ github.workspace }}/aqua.yml
+        # env:
+        #   AQUA_CONFIG: ${{ github.workspace }}/aqua.yml
 
       - uses: suzuki-shunsuke/tfaction/generate-config-out@v1.17.0
         env:
           GITHUB_TOKEN: ${{steps.generate_token.outputs.token}}
-          AQUA_CONFIG: ${{ github.workspace }}/aqua.yml
+          # AQUA_CONFIG: ${{ github.workspace }}/aqua.yml
         with:
           github_token: ${{steps.generate_token.outputs.token}}
           branch: ${{inputs.branch}}
