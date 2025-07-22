@@ -9,12 +9,3 @@
 #     }
 #   }
 # }
-
-# You can use mv, rm, import.
-# migration "state" "test" {
-#   dir = "."
-#   actions = [
-#     "mv aws_security_group.foo aws_security_group.foo2",
-#     "mv aws_security_group.bar aws_security_group.bar2",
-#   ]
-# }

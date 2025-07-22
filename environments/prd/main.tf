@@ -24,3 +24,7 @@ module "test_cwlogs1" {
 #   source = "../../modules/cloudwatch/logs"
 #   cwlogs_name = "test-cwlogs2"
 # }
+
+resource "aws_cloudwatch_log_group" "foo" {
+  name = "foo"
+}
