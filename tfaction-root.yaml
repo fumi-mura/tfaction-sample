@@ -34,12 +34,12 @@ target_groups:
     template_dir: environments/prd
     terraform_plan_config: {} # Roleはパブリックにしたくないため、configure-aws-credentialsのactionsを使う
     terraform_apply_config: {}
+    tfmigrate_plan_config: {}
+    tfmigrate_apply_config: {}
     # terraform_plan_config:
     #   aws_assume_role_arn: arn:aws:iam::000000000000:role/GitHubActions_Terraform_github_terraform_plan
     # terraform_apply_config:
     #   aws_assume_role_arn: arn:aws:iam::000000000000:role/GitHubActions_Terraform_github_terraform_apply
-    tfmigrate_plan_config: {}
-    tfmigrate_apply_config: {}
     # tfmigrate_plan_config:
     #   aws_assume_role_arn: arn:aws:iam::000000000000:role/GitHubActions_Terraform_github_tfmigrate_plan
     # tfmigrate_apply_config:
