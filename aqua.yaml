@@ -18,3 +18,4 @@ packages:
 - name: suzuki-shunsuke/github-comment@v6.3.2
 # - name: int128/ghcp@v1.13.5
 - name: int128/ghcp@v1.14.0 # generate-config-outのchecksumのv1.14.0に合わせてみる
+- name: minamijoyo/tfmigrate@v0.4.2
