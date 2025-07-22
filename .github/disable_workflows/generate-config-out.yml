@@ -1,7 +1,7 @@
 # 利用時には事前にimportブロックと、対応するresourceブロックを用意しておくこと。
 # リソースブロックが無い状態で実行するとaquaのchecksumで謎のエラーが発生した。
 # ローカルで実行すると、リソースブロックが無い状態はgenerated.tfが作成されるが、
-# リソースブロックがあるとgenerated.tfは作成されない
+# リソースブロックがあるとgenerated.tfは作成されない。エラー解消できないため一旦無効化...
 name: terraform plan -generate-config-out
 run-name: terraform plan -generate-config-out (${{inputs.working_dir}})
 on:
@@ -67,9 +67,3 @@ jobs:
           github_token: ${{steps.generate_token.outputs.token}}
           branch: ${{inputs.branch}}
           file: ${{inputs.file}}
-          # args: "--no-comment --no-label"
-
-      - name: List generated files
-        run: |
-          echo "Listing generated_*.tf"
-          ls -la generated_*.tf || echo "Not found"
