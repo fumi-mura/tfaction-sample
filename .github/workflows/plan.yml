@@ -59,7 +59,7 @@ jobs:
           app-id: ${{ secrets.TFACTION_GITHUB_APP_ID }}
           private-key: ${{ secrets.TFACTION_GITHUB_PRIVATE_KEY }}
 
-      - name: Configure AWS credentials from OIDC
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.OIDC_ROLE_ARN_PLAN }}
