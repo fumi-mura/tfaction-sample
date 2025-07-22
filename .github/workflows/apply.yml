@@ -31,7 +31,7 @@ jobs:
         id: list-targets
 
   apply:
-    name: "terraform apply (${{ matrix.target.target }})"
+    name: terraform apply (${{ matrix.target.target }})
     runs-on: ubuntu-latest
     timeout-minutes: 5
     needs: setup

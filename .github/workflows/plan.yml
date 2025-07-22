@@ -30,7 +30,7 @@ jobs:
         id: list-targets
 
   plan:
-    name: "terraform plan (${{ matrix.target.target }})"
+    name: terraform plan (${{ matrix.target.target }})
     runs-on: ubuntu-latest
     timeout-minutes: 5
     needs: setup
