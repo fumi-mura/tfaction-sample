@@ -71,4 +71,4 @@ jobs:
       - name: tfmigrate plan
         uses: suzuki-shunsuke/tfaction/tfmigrate-plan@v1.17.0
         with:
-          github_app_token: ${{ steps.generate_token.outputs.token }}
+          github_token: ${{ steps.generate_token.outputs.token }}
