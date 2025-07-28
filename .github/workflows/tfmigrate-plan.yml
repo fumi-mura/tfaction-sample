@@ -1,5 +1,5 @@
 # prのラベルに'tfmigrate:<target>'がついている場合にtfmigrate planを実行する
-# tfmigrate:<target dir> and skip:<target dir>
+# ex: tfmigrate:<target dir> and skip:<target dir>
 name: tfmigrate plan
 on:
   pull_request:
