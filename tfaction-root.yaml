@@ -1,7 +1,9 @@
 # ファイル名は"yaml"である必要がある
+# ref: https://suzuki-shunsuke.github.io/tfaction/docs/config/tfaction-root-yaml/
 plan_workflow_name: Terraform plan
 label_prefixes:
   tfmigrate: "migrate:"
+  skip: "skip:"
 # skip_create_pr: true
 
 drift_detection:
