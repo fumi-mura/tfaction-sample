@@ -18,7 +18,7 @@ jobs:
     timeout-minutes: 5
     if: contains(github.event.label.name, 'tfmigrate:')
     outputs:
-      tfmigrate_targets: ${{ steps.list-targets.outputs.targets }}
+      targets: ${{ steps.list-targets.outputs.targets }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,11 +37,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     needs: setup
-    if: join(fromJSON(needs.setup.outputs.tfmigrate_targets), '') != ''
+    if: join(fromJSON(needs.setup.outputs.targets), '') != ''
     strategy:
       fail-fast: false
       matrix:
-        target: ${{fromJSON(needs.setup.outputs.tfmigrate_targets)}}
+        target: ${{fromJSON(needs.setup.outputs.targets)}}
     env:
       TFACTION_TARGET: ${{ matrix.target.target }}
       TFACTION_WORKING_DIR: ${{matrix.target.working_directory}}
