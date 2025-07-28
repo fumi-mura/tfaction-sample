@@ -20,11 +20,11 @@ trivy:
 #   skip_adding_aqua_packages: true
 
 aqua:
-  update_checksum:
+  # update_checksum:
     # Update aqua-checksums.json in `setup` action
-    enabled: true # default is false
+    enabled: false # default is false
     skip_push: false # default is false
-    prune: true # default is false
+    prune: false # default is false
 
 target_groups:
   - working_directory: environments/prd
