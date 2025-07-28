@@ -1,4 +1,4 @@
-# 通常のtfmigrateの設定はこのファイルに記載するが、tfactionを使う場合はtfaction側で設定をしている
+# tfmigrateの設定はこのファイルに記載するが、tfactionを使う場合はtfaction側で設定をしている
 # ref: https://github.com/suzuki-shunsuke/tfaction/blob/main/tfmigrate-plan/tfmigrate.hcl
 # tfmigrate {
 #   migration_dir = "./tfmigrate"
