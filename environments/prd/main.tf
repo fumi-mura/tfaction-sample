@@ -25,6 +25,6 @@ module "test_cwlogs1" {
 #   cwlogs_name = "test-cwlogs2"
 # }
 
-resource "aws_cloudwatch_log_group" "foo1" {
+resource "aws_cloudwatch_log_group" "foo2" {
   name = "foo"
 }
