@@ -3,7 +3,7 @@
 migration "state" "test" {
   dir = "."
   actions = [
+    # "mv aws_cloudwatch_log_group.from aws_cloudwatch_log_group.to",
     "mv aws_cloudwatch_log_group.foo1 aws_cloudwatch_log_group.foo2",
-    # "mv aws_cloudwatch_log_group.bar1 aws_cloudwatch_log_group.bar2",
   ]
 }
