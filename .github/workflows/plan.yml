@@ -29,9 +29,6 @@ jobs:
         uses: suzuki-shunsuke/tfaction/list-targets@v1.17.0
         id: list-targets
 
-      - name: Debug labels
-        run: cat /tmp/ci-info*/labels.txt || echo "labels.txt not found"
-
   plan:
     name: terraform plan (${{ matrix.target.target }})
     runs-on: ubuntu-latest
