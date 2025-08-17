@@ -34,6 +34,6 @@ import {
   to = aws_cloudwatch_log_group.test3
 }
 
-resource "aws_cloudwatch_log_group" "test3" {
-  name = "foo"
-}
+# resource "aws_cloudwatch_log_group" "test3" {
+#   name = "foo"
+# }
