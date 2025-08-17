@@ -16,7 +16,10 @@ on:
       branch:
         description: branch name
         required: true
-
+permissions:
+  id-token: write # For OIDC
+  contents: read # For checkout a private repository
+  pull-requests: write
 env:
   TFACTION_WORKING_DIR: ${{github.event.inputs.working_dir}}
   TFACTION_JOB_TYPE: terraform
@@ -26,9 +29,6 @@ jobs:
   import:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write # For OIDC
-      contents: read # For checkout a private repository
     steps:
       - uses: actions/checkout@v4
         with:
