@@ -2,8 +2,9 @@
 # ref: https://suzuki-shunsuke.github.io/tfaction/docs/config/tfaction-root-yaml/
 plan_workflow_name: Terraform plan
 label_prefixes:
-  tfmigrate: "migrate:" # tfmigrate側のworkflowで使用するラベルと合わせること
-  skip: "skip:"
+  # tfmigrate用のラベルを付けると自動的にterraform plan/applyから、tfmigrate plan/applyに変更される(専用workflowは不要。手動実行scaffoldを使用)
+  tfmigrate: "migrate:" # ex migrate:dev
+  skip: "skip:"  # ex skip:dev
 # skip_create_pr: true
 
 drift_detection:
