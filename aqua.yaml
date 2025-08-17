@@ -15,7 +15,7 @@ packages:
 - name: aquasecurity/trivy@v0.60.0
 - name: reviewdog/reviewdog@v0.14.2
 - name: terraform-docs/terraform-docs@v0.19.0
-- name: suzuki-shunsuke/github-comment@v6.3.2
+- name: suzuki-shunsuke/github-comment@v6.3.4
 - name: int128/ghcp@v1.13.5
 # - name: int128/ghcp@v1.14.0 # generate-config-outのchecksumのv1.14.0に合わせてみる
 - name: minamijoyo/tfmigrate@v0.4.2
