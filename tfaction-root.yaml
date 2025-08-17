@@ -23,7 +23,7 @@ trivy:
 #   skip_adding_aqua_packages: true
 
 aqua:
-  # update_checksum:
+  update_checksum:
     # Update aqua-checksums.json in `setup` action
     enabled: false # default is false
     skip_push: false # default is false
