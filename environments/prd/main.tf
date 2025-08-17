@@ -28,3 +28,8 @@ module "test_cwlogs1" {
 resource "aws_cloudwatch_log_group" "foo2" {
   name = "foo"
 }
+
+import {
+  id = "test-cwlogs2"
+  to = aws_cloudwatch_log_group.test3
+}
