@@ -16,7 +16,7 @@ jobs:
     name: Setup
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    if: contains(github.event.label.name, 'tfmigrate:')
+    if: contains(github.event.label.name, 'migrate:')
     outputs:
       targets: ${{ steps.list-targets.outputs.targets }}
     steps:
