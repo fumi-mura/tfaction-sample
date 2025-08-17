@@ -1,0 +1,43 @@
+name: Scaffold tfmigrate
+run-name: Scaffold tfmigrate (${{inputs.target}})
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "target"
+        required: true
+      migration_name:
+        description: 'migration name. e.g. "import_foo"'
+        required: true
+      pr_number:
+        description: Pull Request Number
+        required: false
+env:
+  TFACTION_TARGET: ${{github.event.inputs.target}}
+jobs:
+  scaffold:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install tools
+        uses: aquaproj/aqua-installer@v4.0.2
+        with:
+          aqua_version: v2.53.3
+
+      - name: Generate token
+        id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.TFACTION_GITHUB_APP_ID }}
+          private-key: ${{ secrets.TFACTION_GITHUB_PRIVATE_KEY }}
+
+      - uses: suzuki-shunsuke/tfaction/scaffold-tfmigrate@fe01abc967d9c7a9889abbb8502e2947a1dfece3 # v1.17.0
+        with:
+          github_token: ${{steps.generate_token.outputs.token}}
+          migration_name: ${{github.event.inputs.migration_name}}
+          pr_number: ${{inputs.pr_number}}

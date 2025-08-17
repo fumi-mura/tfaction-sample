@@ -1,7 +1,10 @@
 # ファイル名は"yaml"である必要がある
+# ref: https://suzuki-shunsuke.github.io/tfaction/docs/config/tfaction-root-yaml/
 plan_workflow_name: Terraform plan
-# label_prefixes:
-#   tfmigrate: "migrate:"
+label_prefixes:
+  # tfmigrate用のラベルを付けると自動的にterraform plan/applyから、tfmigrate plan/applyに変更される(専用workflowは不要。手動実行はscaffoldを使用)
+  tfmigrate: "migrate:" # ex migrate:dev
+  skip: "skip:"  # ex skip:dev
 # skip_create_pr: true
 
 drift_detection:
@@ -20,20 +23,22 @@ trivy:
 #   skip_adding_aqua_packages: true
 
 aqua:
-  update_checksum:
+  # update_checksum:
     # Update aqua-checksums.json in `setup` action
-    enabled: true # default is false
+    enabled: false # default is false
     skip_push: false # default is false
-    prune: true # default is false
+    prune: false # default is false
 
 target_groups:
   - working_directory: environments/prd
     target: prd
     aws_region: ap-northeast-1
-    # s3_bucket_name_tfmigrate_history: '<S3 Bucket Name for tfmigrate history files>'
-    # template_dir: templates/github
+    s3_bucket_name_tfmigrate_history: 'prd-fumis-pf-terraform-tfstate-s3-bucket'
+    template_dir: environments/prd
     terraform_plan_config: {} # Roleはパブリックにしたくないため、configure-aws-credentialsのactionsを使う
     terraform_apply_config: {}
+    tfmigrate_plan_config: {}
+    tfmigrate_apply_config: {}
     # terraform_plan_config:
     #   aws_assume_role_arn: arn:aws:iam::000000000000:role/GitHubActions_Terraform_github_terraform_plan
     # terraform_apply_config:
