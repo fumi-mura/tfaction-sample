@@ -66,6 +66,21 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/int128/ghcp/v1.15.0/ghcp_darwin_amd64.zip",
+      "checksum": "BBFC2198A03E72724D8D4A69290C63EE795A7272C94E23CDDB723A389B49E03E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/int128/ghcp/v1.15.0/ghcp_linux_amd64.zip",
+      "checksum": "7793962CE99E3CE153A691565D6904743995D922F8D452427C5EC066BD71E0D0",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/int128/ghcp/v1.15.0/ghcp_windows_amd64.zip",
+      "checksum": "F6E3A8296EC17CDB3092660DFCA3781D53644E0D05B5706A9B00076C11FB6CEC",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/minamijoyo/tfmigrate/v0.4.2/tfmigrate_0.4.2_darwin_amd64.tar.gz",
       "checksum": "DF2B26CF577D5BBF6DC9F5336B68485502B70E9384D0EACE01662309BB76FDCD",
       "algorithm": "sha256"
