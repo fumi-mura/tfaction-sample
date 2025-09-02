@@ -55,12 +55,12 @@ jobs:
           role-to-assume: ${{ secrets.OIDC_ROLE_ARN_PLAN }}
           aws-region: ap-northeast-1
 
-      - uses: suzuki-shunsuke/tfaction/setup@v1.19.1
+      - uses: suzuki-shunsuke/tfaction/setup@v1.19.2
         id: setup
         with:
           github_token: ${{steps.generate_token.outputs.token}}
 
-      - uses: suzuki-shunsuke/tfaction/generate-config-out@v1.19.1
+      - uses: suzuki-shunsuke/tfaction/generate-config-out@v1.19.2
         env:
           GITHUB_TOKEN: ${{steps.generate_token.outputs.token}}
         with:
