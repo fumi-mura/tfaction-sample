@@ -16,7 +16,10 @@ on:
       branch:
         description: branch name
         required: true
-
+permissions:
+  id-token: write # For OIDC
+  contents: read # For checkout a private repository
+  pull-requests: write
 env:
   TFACTION_WORKING_DIR: ${{github.event.inputs.working_dir}}
   TFACTION_JOB_TYPE: terraform
@@ -26,9 +29,6 @@ jobs:
   import:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write # For OIDC
-      contents: read # For checkout a private repository
     steps:
       - uses: actions/checkout@v4
         with:
@@ -55,12 +55,12 @@ jobs:
           role-to-assume: ${{ secrets.OIDC_ROLE_ARN_PLAN }}
           aws-region: ap-northeast-1
 
-      - uses: suzuki-shunsuke/tfaction/setup@v1.17.0
+      - uses: suzuki-shunsuke/tfaction/setup@v1.19.2
         id: setup
         with:
           github_token: ${{steps.generate_token.outputs.token}}
 
-      - uses: suzuki-shunsuke/tfaction/generate-config-out@v1.17.0
+      - uses: suzuki-shunsuke/tfaction/generate-config-out@v1.19.2
         env:
           GITHUB_TOKEN: ${{steps.generate_token.outputs.token}}
         with:
