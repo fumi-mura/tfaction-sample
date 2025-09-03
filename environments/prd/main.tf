@@ -37,18 +37,3 @@ import {
 # resource "aws_cloudwatch_log_group" "test3" {
 #   name = "foo"
 # }
-
-resource "aws_cloudwatch_log_group" "test3" {
-  kms_key_id        = null
-  log_group_class   = "STANDARD"
-  name              = "test-cwlogs2"
-  name_prefix       = null
-  region            = "ap-northeast-1"
-  retention_in_days = 30
-  skip_destroy      = false
-  tags              = {}
-  tags_all = {
-    Env                = "prd"
-    ManagedByTerraform = "true"
-  }
-}
