@@ -29,7 +29,7 @@ resource "aws_cloudwatch_log_group" "foo2" {
   name = "foo"
 }
 
-# エラーになるためmainで試してみるためにコメントアウト
+# エラーになるためmainブランチで試してみるためにコメントアウト
 # import {
 #   id = "test-cwlogs2"
 #   to = aws_cloudwatch_log_group.test3
