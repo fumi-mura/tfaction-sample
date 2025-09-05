@@ -14,27 +14,3 @@ module "init" {
     }
   }
 }
-
-module "test_cwlogs1" {
-  source      = "../../modules/cloudwatch/logs"
-  cwlogs_name = "test-cwlogs1"
-}
-
-# module "test_cwlogs2" {
-#   source = "../../modules/cloudwatch/logs"
-#   cwlogs_name = "test-cwlogs2"
-# }
-
-resource "aws_cloudwatch_log_group" "foo2" {
-  name = "foo"
-}
-
-# エラーになるためmainブランチで試してみるためにコメントアウト
-# import {
-#   id = "test-cwlogs2"
-#   to = aws_cloudwatch_log_group.test3
-# }
-
-# resource "aws_cloudwatch_log_group" "test3" {
-#   name = "foo"
-# }
