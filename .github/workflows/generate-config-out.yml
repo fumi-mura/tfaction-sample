@@ -1,5 +1,5 @@
 # 実行前にimportブロックを用意しておくこと。
-name: terraform plan -generate-config-out
+name: Generate config out
 run-name: terraform plan -generate-config-out (${{inputs.working_dir}})
 on:
   workflow_dispatch:
