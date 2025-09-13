@@ -14,3 +14,8 @@ module "init" {
     }
   }
 }
+
+module "cwlogs1" {
+  source = "../../modules/cwlogs"
+  name = "test1"
+}
