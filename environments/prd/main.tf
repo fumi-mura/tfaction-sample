@@ -2,12 +2,12 @@ module "init" {
   source = "../../modules/init"
   env    = local.env
   iam_roles = {
-    prd_plan_admin = {
+    plan_admin = {
       exec           = "plan"
       policy         = "readonly"
       managed_policy = "ReadOnlyAccess"
     }
-    prd_apply_admin = {
+    apply_admin = {
       exec           = "apply"
       policy         = "admin"
       managed_policy = "AdministratorAccess"
