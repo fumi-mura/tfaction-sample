@@ -60,6 +60,13 @@ jobs:
           app-id: ${{ secrets.TFACTION_GITHUB_APP_ID }}
           private-key: ${{ secrets.TFACTION_GITHUB_PRIVATE_KEY }}
 
+      - name: Debug environment info
+        run: |
+          echo "Target: ${{ matrix.target.target }}"
+          echo "Environment: ${{ matrix.target.target }}"
+          echo "Working Directory: ${{ matrix.target.working_directory }}"
+          echo "Role ARN (masked): ${{ secrets.OIDC_ROLE_ARN_PLAN != '' && 'SET' || 'NOT_SET' }}"
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
