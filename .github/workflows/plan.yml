@@ -39,6 +39,7 @@ jobs:
       fail-fast: false
       matrix:
         target: ${{ fromJSON(needs.setup.outputs.targets) }}
+    environment: ${{ matrix.target.target }}
     env:
       TFACTION_TARGET: ${{ matrix.target.target }}
       TFACTION_WORKING_DIR: ${{matrix.target.working_directory}}
