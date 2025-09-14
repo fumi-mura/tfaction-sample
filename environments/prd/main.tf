@@ -1,8 +1,8 @@
 data "aws_caller_identity" "current" {}
 
 module "init" {
-  source = "../../modules/init"
-  env    = local.env
+  source     = "../../modules/init"
+  env        = local.env
   account_id = data.aws_caller_identity.current.account_id
   iam_roles = {
     plan_admin = {
