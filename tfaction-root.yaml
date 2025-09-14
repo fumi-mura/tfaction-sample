@@ -39,6 +39,7 @@ target_groups:
     terraform_apply_config: {}
     tfmigrate_plan_config: {}
     tfmigrate_apply_config: {}
+
   - working_directory: environments/prd
     target: prd
     aws_region: ap-northeast-1

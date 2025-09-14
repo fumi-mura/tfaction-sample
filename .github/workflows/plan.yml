@@ -66,6 +66,9 @@ jobs:
           echo "Environment: ${{ matrix.target.target }}"
           echo "Working Directory: ${{ matrix.target.working_directory }}"
           echo "Role ARN (masked): ${{ secrets.OIDC_ROLE_ARN_PLAN != '' && 'SET' || 'NOT_SET' }}"
+          echo "GitHub ref: ${{ github.ref }}"
+          echo "GitHub head ref: ${{ github.head_ref }}"
+          echo "GitHub event name: ${{ github.event_name }}"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
