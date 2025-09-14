@@ -17,5 +17,5 @@ module "init" {
 
 module "cwlogs1" {
   source      = "../../modules/cloudwatch/logs"
-  cwlogs_name = "test1"
+  cwlogs_name = "test-2"
 }
