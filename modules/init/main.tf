@@ -5,7 +5,7 @@ data "aws_iam_policy_document" "assume_role" {
 
     principals {
       type        = "Federated"
-      identifiers = ["arn:aws:iam::644370126241:oidc-provider/token.actions.githubusercontent.com"]
+      identifiers = ["arn:aws:iam::${var.account_id}:oidc-provider/token.actions.githubusercontent.com"]
     }
 
     # condition {
