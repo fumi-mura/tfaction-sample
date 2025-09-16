@@ -8,6 +8,10 @@
 # Exclude all .tfvars files
 *.tfvars
 
+# Terragrunt
+.terragrunt-cache
+_*.tf
+
 # Local settings
 **/.vscode/*
 **/.envrc
