@@ -18,3 +18,4 @@ packages:
 - name: suzuki-shunsuke/github-comment@v6.3.2
 - name: int128/ghcp@v1.13.5
 - name: minamijoyo/tfmigrate@v0.4.2
+- name: gruntwork-io/terragrunt@v0.87.0
