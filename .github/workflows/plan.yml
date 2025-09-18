@@ -60,23 +60,11 @@ jobs:
           app-id: ${{ secrets.TFACTION_GITHUB_APP_ID }}
           private-key: ${{ secrets.TFACTION_GITHUB_PRIVATE_KEY }}
 
-      - name: Debug environment info
-        run: |
-          echo "Target: ${{ matrix.target.target }}"
-          echo "Environment: ${{ matrix.target.target }}"
-          echo "Working Directory: ${{ matrix.target.working_directory }}"
-          echo "Role ARN (masked): ${{ secrets.OIDC_ROLE_ARN_PLAN != '' && 'SET' || 'NOT_SET' }}"
-          echo "GitHub ref: ${{ github.ref }}"
-          echo "GitHub head ref: ${{ github.head_ref }}"
-          echo "GitHub event name: ${{ github.event_name }}"
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.OIDC_ROLE_ARN_PLAN }}
           aws-region: ap-northeast-1
-          mask-aws-account-id: false
-          output-credentials: true
 
       - name: Set up
         uses: suzuki-shunsuke/tfaction/setup@v1.17.0
