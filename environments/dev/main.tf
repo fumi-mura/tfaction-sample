@@ -27,8 +27,3 @@ module "cwlogs2" {
   source      = "../../modules/cloudwatch/logs"
   cwlogs_name = "test2"
 }
-
-module "cwlogs3" {
-  source      = "../../modules/cloudwatch/logs"
-  cwlogs_name = "test3"
-}

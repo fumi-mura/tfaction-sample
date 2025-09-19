@@ -46,6 +46,7 @@ jobs:
       TFACTION_WORKING_DIR: ${{matrix.target.working_directory}}
       TFACTION_JOB_TYPE: ${{matrix.target.job_type}}
       TFACTION_IS_APPLY: true
+      TERRAGRUNT_LOG_DISABLE: true # Terragruntのログに"timestamp STDOUT terraform"のprefixが付くと、tfcmtがparseできないため無効化
     steps:
       - name: Checkout
         uses: actions/checkout@v4
