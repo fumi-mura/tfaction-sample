@@ -1,3 +1,4 @@
 locals {
-  env = "prd"
+  env         = "prd"
+  ServiceName = "tfaction-sample"
 }
