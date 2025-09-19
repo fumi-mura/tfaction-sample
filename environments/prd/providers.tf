@@ -1,7 +1,7 @@
 provider "aws" {
   default_tags {
     tags = {
-      Env                = local.env
+      Environment        = local.env
       ManagedByTerraform = true
     }
   }
