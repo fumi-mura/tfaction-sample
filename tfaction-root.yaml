@@ -3,8 +3,8 @@
 plan_workflow_name: Terraform plan
 label_prefixes:
   # tfmigrate用のラベルを付けると自動的にterraform plan/applyから、tfmigrate plan/applyに変更される(専用workflowは不要。手動実行はscaffoldを使用)
-  tfmigrate: "migrate:" # ex migrate:dev
-  skip: "skip:"  # ex skip:dev
+  tfmigrate: "migrate:" # e.g. migrate:dev
+  skip: "skip:"  # e.g. skip:dev
 # skip_create_pr: true
 
 drift_detection:
