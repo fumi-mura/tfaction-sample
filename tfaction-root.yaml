@@ -1,5 +1,4 @@
 # ファイル名は"yaml"である必要がある
-# ref: https://suzuki-shunsuke.github.io/tfaction/docs/config/tfaction-root-yaml/
 plan_workflow_name: Terraform plan
 label_prefixes:
   # tfmigrate用のラベルを付けると自動的にterraform plan/applyから、tfmigrate plan/applyに変更される(専用workflowは不要。手動実行はscaffoldを使用)
