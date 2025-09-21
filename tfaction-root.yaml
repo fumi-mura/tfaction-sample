@@ -4,29 +4,22 @@ label_prefixes:
   # tfmigrate用のラベルを付けると自動的にterraform plan/applyから、tfmigrate plan/applyに変更される(専用workflowは不要。手動実行はscaffoldを使用)
   tfmigrate: "migrate:" # e.g. migrate:dev
   skip: "skip:"  # e.g. skip:dev
-# skip_create_pr: true
 
 drift_detection:
-  # issue_repo_owner:
-  # issue_repo_name:
   minimum_detection_interval: 120 # 120 hours (5 days)
   num_of_issues: 3 # 3 working directories are checked per workflow run. By default 1 working directory is checked.
 
 tflint:
   enabled: true
-  fix: true # Auto fix by tflint --fix
+  fix: true
 trivy:
   enabled: true
 
-# scaffold_working_directory:
-#   skip_adding_aqua_packages: true
-
 aqua:
   update_checksum:
-    # Update aqua-checksums.json in `setup` action
-    enabled: true # default is false
-    skip_push: false # default is false
-    prune: false # default is false
+    enabled: true
+    skip_push: false
+    prune: false
 
 target_groups:
   - working_directory: environments/dev
