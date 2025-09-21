@@ -12,7 +12,6 @@ permissions:
 env:
   TRIVY_CONFIG: ${{ github.workspace }}/trivy.yaml
   TRIVY_IGNOREFILE: ${{ github.workspace }}/.trivyignore.yaml
-  TFLINT_CONFIG_FILE: ${{ github.workspace }}/modules/.tflint.hcl
 jobs:
   setup:
     name: Setup
