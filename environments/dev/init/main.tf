@@ -1,7 +1,7 @@
 data "aws_caller_identity" "current" {}
 
 module "init" {
-  source     = "../../modules/init"
+  source     = "../../../modules/init"
   env        = local.env
   account_id = data.aws_caller_identity.current.account_id
   iam_roles = {
@@ -19,11 +19,11 @@ module "init" {
 }
 
 module "cwlogs1" {
-  source      = "../../modules/cloudwatch/logs"
+  source      = "../../../modules/cloudwatch/logs"
   cwlogs_name = "test1"
 }
 
 module "cwlogs2" {
-  source      = "../../modules/cloudwatch/logs"
+  source      = "../../../modules/cloudwatch/logs"
   cwlogs_name = "test2"
 }

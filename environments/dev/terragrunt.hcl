@@ -23,10 +23,8 @@ remote_state {
 
   config = {
     # Default versioning setting is enabled.
-    # bucket               = "terragrunt-${local.env}-${local.name}-terraform-tfstate-s3-bucket"
     bucket               = "dev-fumis-pf-terraform-tfstate-s3-bucket"
-    # key                  = "${path_relative_to_include()}/terraform.tfstate"
-    key                  = "tfaction-sample/terraform.tfstate"
+    key                  = "tfaction-sample/${path_relative_to_include()}/terraform.tfstate"
     region               = local.region
     encrypt              = true
     bucket_sse_algorithm = "AES256"
