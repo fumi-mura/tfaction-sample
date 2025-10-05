@@ -1,5 +1,5 @@
 tfmigrate {
-  migration_dir = "./state_operation/tfmigrate"
+  migration_dir = "./tfmigrate"
   history {
     storage "s3" {
       bucket = "prd-fumis-pf-terraform-tfstate-s3-bucket"
