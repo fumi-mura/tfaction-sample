@@ -1,0 +1,37 @@
+{
+  extends: [
+    "config:base" // ベースとなる設定を読み込む
+  ],
+  dependencyDashboard: false, // Dependency Dashboard を無効化
+  requiredStatusChecks: null, // ステータスチェックを行わない
+  prHourlyLimit: 10, // 1時間あたりの PR 作成上限
+  prConcurrentLimit: 10, // 同時にオープンできる PR 上限
+  branchConcurrentLimit: 10, // 同時に作成できるブランチ上限
+  minimumReleaseAge: "7 days", // リリースされてから7日後に更新を行う
+
+  schedule: [
+    "every 1 hour after 00:00 and before 23:59 every day" // Renovate の更新を毎日1回行う
+  ],
+
+  automergeSchedule: [
+    "every 1 hour after 00:00 and before 23:59 every day" // PR の生成と自動マージを毎日1回行う
+  ],
+
+  major: {
+    enabled: false // major の更新は対象外
+  },
+
+  labels: [
+    'renovate:{{depName}}',
+    'renovate:{{depName}}/{{newVersion}}',
+    'datasource:{{datasource}}',
+  ],
+
+  packageRules: [
+    {
+      // major 以外の PR は自動マージ
+      matchUpdateTypes: ["minor", "patch", "pin", "digest"],
+      automerge: true
+    },
+  ]
+}
