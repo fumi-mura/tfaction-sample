@@ -19,15 +19,15 @@ jobs:
       targets: ${{ steps.list-targets.outputs.targets }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
 
       - name: Install tools
-        uses: aquaproj/aqua-installer@v4.0.2
+        uses: aquaproj/aqua-installer@d1fe50798dbadd4eb5b98957290ca175f6b4870f # v4.0.2
         with:
           aqua_version: v2.53.3
 
       - name: Get changed directories
-        uses: suzuki-shunsuke/tfaction/list-targets@v1.17.0
+        uses: suzuki-shunsuke/tfaction/list-targets@fe01abc967d9c7a9889abbb8502e2947a1dfece3 # v1.17.0
         id: list-targets
 
   apply:
@@ -49,38 +49,38 @@ jobs:
       TERRAGRUNT_LOG_DISABLE: true # Terragruntのログに"timestamp STDOUT terraform"のprefixが付くと、tfcmtがparseできないため無効化
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
 
       - name: Install tools
-        uses: aquaproj/aqua-installer@v4.0.2
+        uses: aquaproj/aqua-installer@d1fe50798dbadd4eb5b98957290ca175f6b4870f # v4.0.2
         with:
           aqua_version: v2.53.3
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4.3.1
         with:
           role-to-assume: ${{ secrets.OIDC_ROLE_ARN_APPLY }}
           aws-region: ap-northeast-1
 
       - name: Generate token
         id: generate_token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@d72941d797fd3113feb6b93fd0dec494b13a2547 # v1.12.0
         with:
           app-id: ${{ secrets.TFACTION_GITHUB_APP_ID }}
           private-key: ${{ secrets.TFACTION_GITHUB_PRIVATE_KEY }}
 
       - name: Set up
-        uses: suzuki-shunsuke/tfaction/setup@v1.17.0
+        uses: suzuki-shunsuke/tfaction/setup@fe01abc967d9c7a9889abbb8502e2947a1dfece3 # v1.17.0
         with:
           github_token: ${{ steps.generate_token.outputs.token }}
 
       - name: Apply
-        uses: suzuki-shunsuke/tfaction/apply@v1.17.0
+        uses: suzuki-shunsuke/tfaction/apply@fe01abc967d9c7a9889abbb8502e2947a1dfece3 # v1.17.0
         with:
           github_token: ${{ steps.generate_token.outputs.token }}
 
       - name: Follow up PR
-        uses: suzuki-shunsuke/tfaction/create-follow-up-pr@v1.17.0
+        uses: suzuki-shunsuke/tfaction/create-follow-up-pr@fe01abc967d9c7a9889abbb8502e2947a1dfece3 # v1.17.0
         if: failure()
         with:
           github_token: ${{ steps.generate_token.outputs.token }}
