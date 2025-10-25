@@ -14,6 +14,14 @@
   branchConcurrentLimit: 10, // 同時に作成できるブランチ上限
   minimumReleaseAge: "7 days", // リリースされてから7日後に更新を行う
 
+  // 有効化するマネージャー（最低限の検出）
+  enabledManagers: [
+    "github-actions", // config:recommended で対象になるが、enabledManagers を指定する場合は明示的に書く必要がある
+    "aqua",      // aqua.yamlのツール管理
+    "terraform", // Terraformプロバイダー管理
+    "terragrunt" // terragrunt.hclの設定管理
+  ],
+
   major: {
     enabled: false // major の更新は対象外
   },
