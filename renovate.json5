@@ -8,7 +8,8 @@
   automergeSchedule: [ "* 8-9 * * 5" ], // PR の生成と自動マージを毎週金曜日の8時から9時の間に行う
   reviewers: ["fumi-mura"],
   dependencyDashboard: true, // 依存関係ダッシュボードを有効化 todo 使い辛ければ後で無効化する
-  requiredStatusChecks: null, // ステータスチェックを行わない
+  // CIが通った場合のみ自動マージするための設定
+  platformAutomerge: true, // GitHubの自動マージ機能を使用
   prHourlyLimit: 10, // 1時間あたりの PR 作成上限
   prConcurrentLimit: 10, // 同時にオープンできる PR 上限
   branchConcurrentLimit: 10, // 同時に作成できるブランチ上限
@@ -54,9 +55,11 @@
       groupName: "terragrunt"
     },
     {
-      // major 以外の PR は自動マージ
+      // minor/patchはCIが通った場合のみ自動マージ
       matchUpdateTypes: ["minor", "patch"],
-      automerge: true
+      automerge: true,
+      automergeType: "pr", // PRを作成してからマージ
+      ignoreTests: false   // テストが成功した場合のみマージ
     },
   ]
 }
