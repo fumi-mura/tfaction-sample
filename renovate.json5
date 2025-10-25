@@ -13,7 +13,7 @@
   prConcurrentLimit: 10, // 同時にオープンできる PR 上限
   branchConcurrentLimit: 10, // 同時に作成できるブランチ上限
   minimumReleaseAge: "7 days", // リリースされてから7日後に更新を行う
-  semanticCommits: "enabled"  // コミットメッセージの統一
+  semanticCommits: "enabled",  // コミットメッセージの統一
 
   // 有効化するマネージャー（最低限の検出）
   enabledManagers: [
