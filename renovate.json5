@@ -7,7 +7,7 @@
   schedule: [ "* 8-9 * * 1" ], // PR の生成を毎週月曜日の8時から9時の間に行う
   automergeSchedule: [ "* 8-9 * * 5" ], // PR の生成と自動マージを毎週金曜日の8時から9時の間に行う
   reviewers: ["fumi-mura"],
-  dependencyDashboard: false,
+  dependencyDashboard: true, // 依存関係ダッシュボードを有効化 todo 使い辛ければ後で無効化する
   requiredStatusChecks: null, // ステータスチェックを行わない
   prHourlyLimit: 10, // 1時間あたりの PR 作成上限
   prConcurrentLimit: 10, // 同時にオープンできる PR 上限
