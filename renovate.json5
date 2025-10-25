@@ -38,6 +38,22 @@
   // 下の方がルールの優先度が高い
   packageRules: [
     {
+      matchManagers: ["github-actions"],
+      groupName: "github actions"
+    },
+    {
+      matchManagers: ["aqua"],
+      groupName: "aqua tools"
+    },
+    {
+      matchManagers: ["terraform"],
+      groupName: "terraform providers"
+    },
+    {
+      matchManagers: ["terragrunt"],
+      groupName: "terragrunt"
+    },
+    {
       // major 以外の PR は自動マージ
       matchUpdateTypes: ["minor", "patch"],
       automerge: true
