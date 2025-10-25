@@ -1,14 +1,13 @@
 {
   extends: [
-    "config:base" // ベースとなる設定を読み込む
+    "config:recommended",
+    ":dependencyDashboard",
   ],
-  schedule: [
-    "* 8-9 * * 1" // PR の生成を毎週月曜日の8時から9時の間に行う
-  ],
-  automergeSchedule: [
-    "* 8-9 * * 5" // PR の生成と自動マージを毎週金曜日の8時から9時の間に行う
-  ],
-  dependencyDashboard: false, // Dependency Dashboard を無効化
+  timezone: "Asia/Tokyo",
+  schedule: [ "* 8-9 * * 1" ], // PR の生成を毎週月曜日の8時から9時の間に行う
+  automergeSchedule: [ "* 8-9 * * 5" ], // PR の生成と自動マージを毎週金曜日の8時から9時の間に行う
+  reviewers: ["fumi-mura"],
+  dependencyDashboard: false,
   requiredStatusChecks: null, // ステータスチェックを行わない
   prHourlyLimit: 10, // 1時間あたりの PR 作成上限
   prConcurrentLimit: 10, // 同時にオープンできる PR 上限
@@ -20,15 +19,19 @@
   },
 
   labels: [
-    'renovate:{{depName}}',
-    'renovate:{{depName}}/{{newVersion}}',
-    'datasource:{{datasource}}',
+    "renovate",
   ],
 
+  vulnerabilityAlerts: {
+    enabled: true,
+    schedule: ["at any time"] // 脆弱性は即座に対応
+  },
+
+  // 下の方がルールの優先度が高い
   packageRules: [
     {
       // major 以外の PR は自動マージ
-      matchUpdateTypes: ["minor", "patch", "pin", "digest"],
+      matchUpdateTypes: ["minor", "patch"],
       automerge: true
     },
   ]
