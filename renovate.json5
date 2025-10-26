@@ -1,6 +1,62 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "timezone": "Asia/Tokyo",
+  "schedule": [ "* 8-9 * * 1" ], // PR の生成を毎週月曜日の8時から9時の間に行う
+  "automergeSchedule": [ "* 8-9 * * 5" ], // PR の自動マージを毎週金曜日の8時から9時の間に行う
+  "reviewers": ["fumi-mura"],
+  "dependencyDashboard": true, // 依存関係ダッシュボードを有効化 todo 使い辛ければ後で無効化する
+  "platformAutomerge": true, // GitHubの自動マージ機能を使用
+  "prHourlyLimit": 5, // 1時間あたりの PR 作成上限
+  "prConcurrentLimit": 10, // 同時にオープンできる PR 上限
+  "branchConcurrentLimit": 10, // 同時に作成できるブランチ上限
+  "minimumReleaseAge": "7 days", // リリースされてから7日後に更新を行う
+  "semanticCommits": "enabled",  // コミットメッセージの統一
+
+  // 有効化するマネージャー(最低限の検出)
+  "enabledManagers": [
+    "github-actions", // config:recommended で対象になるが、enabledManagers を指定する場合は明示的に書く必要がある
+    "aqua", // aqua.yamlのツール管理
+    "terraform", // Terraformプロバイダー管理
+    "terragrunt" // terragrunt.hclの設定管理
+  ],
+
+  "major": {
+    "enabled": false // major の更新は対象外
+  },
+  "labels": [
+    "renovate"
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "schedule": ["at any time"] // 脆弱性は即座に対応
+  },
+
+  // 下の方がルールの優先度が高い
+  "packageRules": [
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "github actions"
+    },
+    {
+      "matchManagers": ["aqua"],
+      "groupName": "aqua tools"
+    },
+    {
+      "matchManagers": ["terraform"],
+      "groupName": "terraform providers"
+    },
+    {
+      "matchManagers": ["terragrunt"],
+      "groupName": "terragrunt"
+    },
+    {
+      // minor/patchはCIが通った場合のみ自動マージ
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "pr", // PRを作成してからマージ
+      "ignoreTests": false   // テストが成功した場合のみマージ
+    }
   ]
 }
