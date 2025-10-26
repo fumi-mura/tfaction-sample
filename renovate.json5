@@ -1,59 +1,6 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ],
-  "timezone": "Asia/Tokyo",
-  "schedule": [ "* 8-9 * * 1" ],
-  "automergeSchedule": [ "* 8-9 * * 5" ],
-  "reviewers": ["fumi-mura"],
-  "dependencyDashboard": true,
-  "platformAutomerge": true,
-  "prHourlyLimit": 5,
-  "prConcurrentLimit": 10,
-  "branchConcurrentLimit": 10,
-  "minimumReleaseAge": "7 days",
-  "semanticCommits": "enabled",
-
-  "enabledManagers": [
-    "github-actions",
-    "aqua",
-    "terraform",
-    "terragrunt"
-  ],
-
-  "major": {
-    "enabled": false
-  },
-  "labels": [
-    "renovate"
-  ],
-  "vulnerabilityAlerts": {
-    "enabled": true,
-    "schedule": ["at any time"]
-  },
-
-  "packageRules": [
-    {
-      "matchManagers": ["github-actions"],
-      "groupName": "github actions"
-    },
-    {
-      "matchManagers": ["aqua"],
-      "groupName": "aqua tools"
-    },
-    {
-      "matchManagers": ["terraform"],
-      "groupName": "terraform providers"
-    },
-    {
-      "matchManagers": ["terragrunt"],
-      "groupName": "terragrunt"
-    },
-    {
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true,
-      "automergeType": "pr",
-      "ignoreTests": false
-    }
   ]
 }
