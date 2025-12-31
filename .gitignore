@@ -15,6 +15,7 @@ _*.tf
 # Local settings
 **/.vscode/*
 **/.envrc
+.mise/
 
 # For Mac
 .DS_Store
